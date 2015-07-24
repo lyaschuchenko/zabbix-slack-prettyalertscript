@@ -82,7 +82,7 @@ Finally, an action can then be created on the "Actions" sub-tab of the "Configur
 
 * **Name:** Slack Alert
 * **Subject:** PROBLEM {HOST.NAME}
-* **Default Message:** {TRIGGER.NAME} {TRIGGER.STATUS} {TRIGGER.SEVERITY}\n\n&lt;https://PLACE.YOUR.ZABBIX.URL.HERE/history.php?action=showgraph&amp;itemid={ITEM.ID1}|{ITEM.NAME1} Graph&gt;
+* **Default Message:** {TRIGGER.NAME} {TRIGGER.STATUS} {TRIGGER.SEVERITY}\n\n&lt;https://PLACE\.YOUR.ZABBIX.URL.HERE/history.php?action=showgraph&amp;itemid={ITEM.ID1}|{ITEM.NAME1} Graph&gt;
 * **Recovery message enabled:** Yes
 * **Recovery Subject:** RECOVERY {HOST.NAME}
 * **Recovery Message:** {TRIGGER.NAME}: {TRIGGER.STATUS}
