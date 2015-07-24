@@ -72,7 +72,7 @@ You need to create a media type as follows:
 
 ...and ensure that it is enabled before clicking "Save", like so:
 
-![Zabbix Media Type](screenshots/zabbix-mediatype.png "Zabbix Media Type")
+![Zabbix Media Type](screenshots/zabbix-config-of-media-types.png "Zabbix Media Type")
 
 Then, create a "Slack" user on the "Users" sub-tab of the "Administration" tab within the Zabbix servers web interface and specify this users "Media" as the "Slack" media type that was just created with the Slack.com channel ("#alerts" in the example) or user name (such as "@ericoc") that you want messages to go to in the "Send to" field as seen below:
 
