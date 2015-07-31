@@ -7,13 +7,13 @@ This is my fork of [Eric OC's](https://github.com/ericoc) extremely useful [Zabb
 
 It adds functionality to improve formatting, and some template suggestions.
 
-About (Per Eric OC)
-----------------
+About
+------
 
-This Bash script that uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) that I got a chance to write since I could not find any already existing/similar scripts.
+This Bash script uses the custom alert script functionality within [Zabbix](http://www.zabbix.com/) along with the incoming web-hook feature of [Slack](https://slack.com/) to generate "pretty" alerts in Zabbix, color-coded to the alert type. When using the template suggested, it also provides links to the relevant graphs with each generated alert.
 
 #### Versions
-This definitely works with Zabbix 2.0 or greater (including 2.2 and 2.4) as well as Zabbix 1.8.2!
+This works with Zabbix 2.0 or greater (including 2.2 and 2.4) as well as Zabbix 1.8.2!
 
 #### Huge thanks and appreciation to:
 
@@ -88,7 +88,7 @@ Finally, an action can then be created on the "Actions" sub-tab of the "Configur
 * **Recovery Message:** {TRIGGER.NAME}: {TRIGGER.STATUS}
 
 
-Keeping the messages short is probably a good idea; use something such as the following for the contents of each message:
+Keeping the messages short is probably a good idea; instead of the above, you could also use something such as the following for the contents of each message:
 
 	{TRIGGER.NAME} - {HOSTNAME} ({IPADDRESS})
 
@@ -99,9 +99,9 @@ Additionally, you can have multiple different Zabbix users each with "Slack" med
 
 Assuming that you have set a valid Slack web-hook URL within your "slack.sh" file, you can execute the script manually (as opposed to via Zabbix) from Bash on a terminal:
 
-	$ bash slack.sh '@ericoc' PROBLEM 'Oh no! Something is wrong!'
+	$ bash slack.sh '@ericoc' 'PROBLEM FakeServername' 'Oh no! Something is wrong!'
 
-Alerting a specific user name results in the message actually coming from the "slackbot" user using a sort-of "spoofed" user name within the message. A channel alert is sent as you would normally expect from whatever user name you specify in "slack.sh":
+Alerting a specific user name results in the message actually coming from the "slackbot" user using a "spoofed" user name within the message. A channel alert is sent as you would normally expect from whatever user name you specify in "slack.sh":
 
 ![Slack Testing](http://pictures.ericoc.com/github/slack-example.png "Slack Testing")
 
