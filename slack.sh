@@ -6,13 +6,13 @@ username='Zabbix'
 
 ## Values received by this script:
 # To = $1 (Slack channel or user to send the message to, specified in the Zabbix web interface; "@username" or "#channel")
-# Subject = $2 (usually either PROBLEM or RECOVERY)
+# Subject = $2 (usually either PROBLEM {HOST.NAME} or RECOVERY {HOST.NAME}
 # Message = $3 (whatever message the Zabbix action sends, preferably something like "Zabbix server is unreachable for 5 minutes - Zabbix server (127.0.0.1)")
 
-# Get the Slack channel or user ($1) and Zabbix subject ($2 - hopefully either PROBLEM or RECOVERY)
+# Get the Slack channel or user ($1), Zabbix subject (hopefully either PROBLEM or RECOVERY), and the server in question
 to="$1"
-subject=$(echo $2|cut -d' ' -f1)
-server=$(echo $2|cut -d' ' -f2-)
+subject=$(echo $2|cut -d' ' -f1) # The alert type is before the space, server after, eg
+server=$(echo $2|cut -d' ' -f2-) #      "Subject: PROBLEM SomeDatabaseServer01"
 
 # Set up the alert type (future flexibility)
 if [ "$subject" == 'RECOVERY' ]; then
@@ -23,13 +23,12 @@ else
         type="N"
 fi
 
-
-# Change message emoji depending on the subject - smile (RECOVERY), frowning (PROBLEM), or ghost (for everything else)
-if [ $type == 'R' ]; then
-        emoji=':smile:'
-        color="#20E020"
+# Change message emoji, color, and (friendly) status depending on the subject
+if [ $type == 'R' ]; then  # Triggered by 'RECOVERY' above
+        emoji=':smile:'    # A smile,
+        color="#20E020"    # and red text
         status="Recovered"
-elif [ $type == 'P' ]; then
+elif [ $type == 'P' ]; then  # Triggered by 'PROBLEM' above
         emoji=':frowning:'
         color="#E02020"
         status="Problem"
