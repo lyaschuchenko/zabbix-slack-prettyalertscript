@@ -105,11 +105,11 @@ Alerting a specific user name results in the message actually coming from the "s
 
 For Python version
 
-        $ python script.py <Slack channel or user> <Zabbix subject> <Message sent by Zabbix action>
+        $ python3 slack.py <to> <subject> "<message>"
 
 Example
 
-        $ python script.py "#general" "PROBLEM SomeDatabaseServer"
+        $ python3 slack.py "#general" "PROBLEM example.com" "Zabbix server is unreachable for 5 minutes - example.com (127.0.0.1)"
 
 
 ![Slack Testing](http://pictures.ericoc.com/github/slack-example.png "Slack Testing")
