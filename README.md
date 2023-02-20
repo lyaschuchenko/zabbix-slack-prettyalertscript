@@ -103,6 +103,15 @@ Assuming that you have set a valid Slack web-hook URL within your "slack.sh" fil
 
 Alerting a specific user name results in the message actually coming from the "slackbot" user using a "spoofed" user name within the message. A channel alert is sent as you would normally expect from whatever user name you specify in "slack.sh":
 
+For Python version
+
+        $ python script.py <Slack channel or user> <Zabbix subject> <Message sent by Zabbix action>
+
+Example
+
+        $ python script.py "#general" "PROBLEM SomeDatabaseServer
+
+
 ![Slack Testing](http://pictures.ericoc.com/github/slack-example.png "Slack Testing")
 
 More Information
