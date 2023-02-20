@@ -109,7 +109,7 @@ For Python version
 
 Example
 
-        $ python script.py "#general" "PROBLEM SomeDatabaseServer
+        $ python script.py "#general" "PROBLEM SomeDatabaseServer"
 
 
 ![Slack Testing](http://pictures.ericoc.com/github/slack-example.png "Slack Testing")
